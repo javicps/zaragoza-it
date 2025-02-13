@@ -1,0 +1,161 @@
+@use './colors' as colors;
+@import url(' https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
+html {
+  margin: 0;
+  min-height: 100%;
+  padding: 0;
+  height: 100%;
+  transition: background-color 1.3s ease, color 1.3s ease;
+}
+body {
+  margin: 10px;
+  min-height: 100%;
+  padding: 0;
+  height: 100%;
+  transition: background-color 1.3s ease, color 1.3s ease;
+
+  a {
+    color: colors.$light-gray;
+  }
+}
+
+.main {
+  flex: 1;
+  transition: background-color 1.3s ease, color 1.3s ease;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures full viewport height */
+}
+
+.header {
+  position: sticky; /* Makes the header stick to the top */
+  top: 0; /* Ensures it sticks at the very top */
+  z-index: 1000; /* Keeps the header above other elements */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow for visibility */
+  padding: 10px 20px;
+  transition: background-color 1.3s ease, color 1.3s ease;
+}
+
+.content {
+  flex: 1; /* Allows content to expand */
+  padding-bottom: 100px; /* Add padding for better readability */
+  overflow-y: auto; /* Enables scrolling for overflow */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    color: colors.$dark-gray;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: colors.$blue-hover; /* Example: a hover color */
+  }
+}
+
+body {
+  font-family: 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-bottom: 120px;
+}
+
+h1 {
+  font-size: large;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding-inline-start: 0;
+
+  li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+
+  nav ul li a:hover {
+    color: #0056b3;
+  }
+}
+
+div.written-text {
+  font-family: 'Libre Baskerville', Garamond, serif;
+  font-variant-ligatures: common-ligatures;
+  font-size: clamp(16px, 2vw, 20px); /* Minimum 16px, scales up to 20px */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 10px;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.6;
+  h1 {
+    font-family: Garamond;
+    font-size: x-large;
+  }
+}
+
+div.free-text {
+  font-size: large;
+  margin: 40px;
+}
+
+.footer {
+  text-align: center;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transition: background-color 1.3s ease, color 1.3s ease;
+}
+
+.social-icons {
+  margin-top: 10px;
+  a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+    transition: color 1.3s ease;
+  }
+  a:hover {
+    color: colors.$linkedin-blue; /* Example: LinkedIn blue */
+  }
+}
+
+.story-list {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Makes it responsive */
+}
+
+.story-card {
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: colors.$almost-white;
+  transition: transform 0.3s, box-shadow 0.3s;
+  :hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
