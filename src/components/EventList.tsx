@@ -15,6 +15,11 @@ const GET_MEETUP_EVENTS = gql`
             title
             dateTime
             description
+            eventUrl
+            venue {
+              name
+              address
+            }
           }
         }
       }
@@ -22,21 +27,34 @@ const GET_MEETUP_EVENTS = gql`
   }
 `
 
-function EventList() {
+const EventList: React.FC = () => {
   const queries = groupNames.map((urlname) => useQuery(GET_MEETUP_EVENTS, { variables: { urlname } }))
 
-  if (queries.some(({ loading }) => loading)) return <p>Loading...</p>
-  if (queries.some(({ error }) => error)) return <p>Error fetching data</p>
+  if (queries.some(({ loading }) => loading)) return <p>Cargando...</p>
+  if (queries.some(({ error }) => error)) return <p>Error obtiendo datos</p>
 
   return (
     <div>
       {queries.map(({ data }, index) => (
         <div key={groupNames[index]}>
-          <h2>Events for {groupNames[index]}</h2>
+          <h2>Eventos de {groupNames[index]}</h2>
           <ul>
-            {data.groupByUrlname?.upcomingEvents?.edges.map(({ node }) => (
+            {data.groupByUrlname?.upcomingEvents?.edges.map(({ node }: { node: Event }) => (
               <li key={node.id}>
-                {node.title} - {new Date(node.dateTime).toLocaleDateString('es-ES')}
+                <p>
+                  <a href={node.eventUrl} target="_blank">
+                    {node.title}
+                  </a>{' '}
+                  {new Date(node.dateTime).toLocaleDateString('es-ES', {
+                    weekday: 'short',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </p>
+                <p>
+                  Lugar: {node.venue.name}, {node.venue.address}
+                </p>
               </li>
             ))}
           </ul>

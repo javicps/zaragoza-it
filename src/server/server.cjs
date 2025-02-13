@@ -22,31 +22,6 @@ const logError = (error, details = '') => {
 
 app.post('/api/events', async (req, res, next) => {
   const { query, variables } = req.body
-  /*const graphqlQuery = {
-    query: `
-        query ($urlname: String!) {
-  groupByUrlname(urlname: $urlname) {
-    upcomingEvents ( input: { first: 5 }) {
-      count
-      pageInfo {
-        endCursor
-      }
-      edges {
-        
-        node {
-          id 
-          title
-          dateTime
-          description
-        }
-      }
-    }
-  }
-}
-
-    `,
-    variables: { urlname: 'devops-zaragoza' },
-  }*/
 
   const graphqlQuery = {
     query, // ✅ Use the query received in the request
