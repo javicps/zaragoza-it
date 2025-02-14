@@ -36,21 +36,23 @@ const EventList: React.FC = () => {
   return (
     <div>
       {queries.map(({ data }, index) => (
-        <div key={groupNames[index]}>
-          <h2>Eventos de {groupNames[index]}</h2>
+        <div key={groupNames[index]} className="event-entry">
           <ul>
             {data.groupByUrlname?.upcomingEvents?.edges.map(({ node }: { node: Event }) => (
               <li key={node.id}>
                 <p>
                   <a href={node.eventUrl} target="_blank">
                     {node.title}
-                  </a>{' '}
-                  {new Date(node.dateTime).toLocaleDateString('es-ES', {
-                    weekday: 'short',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
+                  </a>
+                  {' => '}
+                  <em>
+                    {new Date(node.dateTime).toLocaleDateString('es-ES', {
+                      weekday: 'short',
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </em>
                 </p>
                 <p>
                   Lugar: {node.venue.name}, {node.venue.address}
