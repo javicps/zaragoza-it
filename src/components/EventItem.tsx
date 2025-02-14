@@ -1,7 +1,11 @@
 import DateMarker from './DateMarker'
 import LocationMarker from './LocationMarker'
 
-const EventItem: React.FC = ({ event }: { event: Event }) => {
+interface EventItemProps {
+  event: Event
+}
+
+const EventItem: React.FC<EventItemProps> = ({ event }) => {
   return (
     <li key={event.id}>
       <h2>
