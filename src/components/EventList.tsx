@@ -1,5 +1,6 @@
 import { gql, useQuery } from '@apollo/client'
 import { groupNames } from '../assets/meetupGroupNames'
+import EventItem from './EventItem'
 
 const GET_MEETUP_EVENTS = gql`
   query ($urlname: String!) {
@@ -16,6 +17,9 @@ const GET_MEETUP_EVENTS = gql`
             dateTime
             description
             eventUrl
+            group {
+              name
+            }
             venue {
               name
               address
@@ -34,34 +38,19 @@ const EventList: React.FC = () => {
   if (queries.some(({ error }) => error)) return <p>Error obtiendo datos</p>
 
   return (
-    <div>
-      {queries.map(({ data }, index) => (
-        <div key={groupNames[index]} className="event-entry">
-          <ul>
-            {data.groupByUrlname?.upcomingEvents?.edges.map(({ node }: { node: Event }) => (
-              <li key={node.id}>
-                <p>
-                  <a href={node.eventUrl} target="_blank">
-                    {node.title}
-                  </a>
-                  {' => '}
-                  <em>
-                    {new Date(node.dateTime).toLocaleDateString('es-ES', {
-                      weekday: 'short',
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </em>
-                </p>
-                <p>
-                  Lugar: {node.venue.name}, {node.venue.address}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+    <div className="event-list">
+      {queries.map(
+        ({ data }, index) =>
+          data.groupByUrlname?.upcomingEvents?.edges.length > 0 && (
+            <div key={groupNames[index]} className="event-entry">
+              <ul>
+                {data.groupByUrlname?.upcomingEvents?.edges.map(({ node }: { node: Event }) => (
+                  <EventItem event={node} />
+                ))}
+              </ul>
+            </div>
+          )
+      )}
     </div>
   )
 }

@@ -54,8 +54,17 @@ html {
   }
 }
 
+.event-list {
+  display: flex;
+  flex-direction: column;
+}
+
 .event-entry {
-  line-height: 1em;
+  line-height: 0.7em;
+  margin-bottom: 10px;
+  li {
+    list-style-type: none;
+  }
 }
 
 body {
