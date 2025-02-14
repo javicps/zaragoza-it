@@ -6,4 +6,5 @@ export const groupNames = [
   'zaragoza-hackathons',
   'dotnetters',
   'meetup-group-docker-zaragoza',
+  'wpzaragoza',
 ]
