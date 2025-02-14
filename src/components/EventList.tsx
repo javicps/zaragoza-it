@@ -35,7 +35,7 @@ const EventList: React.FC = () => {
   const queries = groupNames.map((urlname) => useQuery(GET_MEETUP_EVENTS, { variables: { urlname } }))
 
   if (queries.some(({ loading }) => loading)) return <p>Cargando...</p>
-  if (queries.some(({ error }) => error)) return <p>Error obtiendo datos</p>
+  if (queries.some(({ error }) => error)) return <p>Error obteniendo datos</p>
 
   return (
     <div className="event-list">

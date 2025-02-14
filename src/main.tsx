@@ -6,7 +6,7 @@ const ACCESS_TOKEN =
 
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://cors-anywhere.herokuapp.com/https://api.meetup.com/gql',
+    uri: 'https://api.meetup.com/gql',
     headers: {
       Authorization: `Bearer ${ACCESS_TOKEN}`,
       'Content-Type': 'application/json',
