@@ -6,7 +6,7 @@ const ACCESS_TOKEN =
 
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://api.meetup.com/gql',
+    uri: 'https://thingproxy.freeboard.io/fetch/https://api.meetup.com/gql',
     headers: {
       Authorization: `Bearer ${ACCESS_TOKEN}`,
       'Content-Type': 'application/json',
