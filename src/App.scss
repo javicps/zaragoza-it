@@ -60,10 +60,12 @@ html {
 }
 
 .event-entry {
-  line-height: 0.7em;
   margin-bottom: 10px;
   li {
     list-style-type: none;
+  }
+  h2 {
+    line-height: normal;
   }
 }
 
