@@ -4,7 +4,6 @@ import './App.scss'
 import EventList from './components/EventList'
 
 const App: React.FC = () => {
-  const [events, setEvents] = useState<JSON[]>([])
 
   return (
     <div>

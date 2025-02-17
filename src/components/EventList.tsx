@@ -42,10 +42,10 @@ const EventList: React.FC = () => {
       {queries.map(
         ({ data }, index) =>
           data.groupByUrlname?.upcomingEvents?.edges.length > 0 && (
-            <div key={groupNames[index]} className="event-entry">
-              <ul>
+            <div className="event-entry" key={index}>
+              <ul >
                 {data.groupByUrlname?.upcomingEvents?.edges.map(({ node }: { node: Event }) => (
-                  <EventItem event={node} />
+                  <EventItem event={node} key={node.id}/>
                 ))}
               </ul>
             </div>
