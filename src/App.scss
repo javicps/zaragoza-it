@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 html {
-  margin: 0;
+  margin: 20px;
   min-height: 100%;
   padding: 0;
   height: 100%;
@@ -18,8 +18,8 @@ html {
 #root {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
   min-height: 100vh; /* Ensures full viewport height */
+
 }
 
 .header {
@@ -60,7 +60,9 @@ html {
 }
 
 .event-entry {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  border: 1px dotted colors.$almost-white;
+  border-width: 2px;
   ul {
     margin-block-start: 0.5em;
     padding-inline-start: 20px;
@@ -71,6 +73,7 @@ html {
   }
   h2 {
     line-height: normal;
+    margin: 10px 0;
   }
 }
 
