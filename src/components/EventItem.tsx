@@ -1,3 +1,4 @@
+import formatSpanishDate from '../common/dates'
 import DateMarker from './DateMarker'
 import LocationMarker from './LocationMarker'
 
@@ -17,12 +18,7 @@ const EventItem: React.FC<EventItemProps> = ({ event }) => {
       <p>
         <DateMarker />
         <em>
-          {new Date(event.dateTime).toLocaleDateString('es-ES', {
-            weekday: 'short',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
+          {formatSpanishDate(event.dateTime)}
         </em>
       </p>
 
