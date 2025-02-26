@@ -17,13 +17,12 @@ const EventItem: React.FC<EventItemProps> = ({ event }) => {
       </a>
       <p>
         <DateMarker />
-        <em>
-          {formatSpanishDate(event.dateTime)}
-        </em>
+        <em> {formatSpanishDate(event.dateTime)}</em>
       </p>
 
       <p>
-        <LocationMarker /> {event.venue.name}, {event.venue.address}
+        <LocationMarker />
+        {event.venue.name}, {event.venue.address}
       </p>
     </li>
   )
