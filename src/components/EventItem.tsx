@@ -22,7 +22,7 @@ const EventItem: React.FC<EventItemProps> = ({ event }) => {
 
       <p>
         <LocationMarker />
-        {event.venue.name}, {event.venue.address}
+        {event.venue.name}, {event.venue.address} 
       </p>
     </li>
   )
